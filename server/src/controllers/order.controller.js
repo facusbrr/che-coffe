@@ -1,4 +1,9 @@
-import { createOrder, getOrders, getOrderById } from "../models/order.model.js";
+import {
+  createOrder,
+  getOrders,
+  getOrderById,
+  deleteOrderById,
+} from "../models/order.model.js";
 
 export const createOrderCtrl = (req, res) => {
   const userId = req.user.id;
@@ -45,7 +50,7 @@ export const getOrdersCtrl = (req, res) => {
     const orders = getOrders(userId);
 
     if (!orders) {
-      throw new Error("Ocurrio un error al obtener las orders");
+      throw new Error("No se encontro la order");
     }
 
     res.status(200).json(orders);
@@ -53,5 +58,24 @@ export const getOrdersCtrl = (req, res) => {
     res
       .status(500)
       .json({ message: `No se pudo obtener las tareas: ${error.message}` });
+  }
+};
+
+export const deleteOrderByIdCtrl = (req, res) => {
+  const { id } = req.params;
+  const userId = req.user.id;
+
+  try {
+    const order = deleteOrderById(id, userId);
+
+    if (!order) {
+      throw new Error("No se encontro la orden a eliminar");
+    }
+
+    res.status(200).json({ message: "La order se eliminó correctamente" });
+  } catch (error) {
+    res.status(500).json({
+      message: `Ocurrio un problema al eliminar la order: ${error.message}`,
+    });
   }
 };

@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   createOrderCtrl,
+  deleteOrderByIdCtrl,
   getOrderByIdCtrl,
   getOrdersCtrl,
 } from "../controllers/order.controller.js";
@@ -20,6 +21,8 @@ ordersRouter.post(
   createOrderCtrl
 );
 
-ordersRouter.get("/:id", getOrderByIdCtrl);
+ordersRouter.get("/:id", validateJwt, getOrderByIdCtrl);
+
+ordersRouter.delete("/:id", validateJwt, deleteOrderByIdCtrl);
 
 export { ordersRouter };

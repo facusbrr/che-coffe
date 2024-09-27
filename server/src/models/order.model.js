@@ -19,7 +19,6 @@ export const getOrders = (userId) => {
   return ordersCollection.filter((coffee) => coffee.userId === userId);
 };
 
-// ! FALTA IMPLEMENTAR (NO SE USA EN EL PROYECTO)
 export const getOrderById = (id, userId) => {
   return (
     ordersCollection.find(
