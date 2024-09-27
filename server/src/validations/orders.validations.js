@@ -1,5 +1,7 @@
 import { body } from "express-validator";
 
 export const ordersValidator = [
-  body("coffee").isString("La orden debe ser Capuccino, Espresso o Americano"),
+  body("coffee")
+    .isString()
+    .withMessage("Debe ser Capuccino, Expresso o Americano"),
 ];

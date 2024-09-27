@@ -1,4 +1,4 @@
-import { createOrder, getOrders } from "../models/order.model.js";
+import { createOrder, getOrders, getOrderById } from "../models/order.model.js";
 
 export const createOrderCtrl = (req, res) => {
   const userId = req.user.id;
@@ -19,6 +19,23 @@ export const createOrderCtrl = (req, res) => {
     res
       .status(400)
       .json({ message: "Ocurrio un error al crear la orden", error });
+  }
+};
+
+export const getOrderByIdCtrl = (req, res) => {
+  const { id } = req.params;
+  const userId = req.user.id;
+
+  try {
+    const order = getOrderById(id, userId);
+
+    if (!order) {
+      throw new Error("No se encontro la order");
+    }
+
+    res.status(200).json({ order, user: userId });
+  } catch (error) {
+    res.status(500).json({ message: "No se pudo encontrar la orden" });
   }
 };
 
