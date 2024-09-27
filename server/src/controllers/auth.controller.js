@@ -23,7 +23,18 @@ export const signInCtrl = async (req, res) => {
 
 export const signUpCtrl = async (req, res) => {
   try {
-    // ! Completar la función signUpCtrl
+    // Completar la función signUpCtrl
+    const { username, email, password } = req.body;
+    const newUser = await createUser({ username, email, password });
+
+    if (!newUser) {
+      throw new Error("No se pudo registrar el usuario");
+    }
+
+    console.log(newUser);
+    res.status(201).json({ message: "Success registed" });
+
+    return { newUser };
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
