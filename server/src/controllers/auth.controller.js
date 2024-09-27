@@ -40,9 +40,8 @@ export const signUpCtrl = async (req, res) => {
   }
 };
 
-export const signOutCtrl = (_req, res) => {
+export const signOutCtrl = (req, res) => {
   try {
-    // ! Completar la función signOutCtrl
     res.status(200).json({ message: "Sign out success" });
   } catch (error) {
     res.status(500).json({ message: error.message });
