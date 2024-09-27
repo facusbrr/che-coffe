@@ -23,9 +23,9 @@ $form.addEventListener("submit", async (e) => {
     body: JSON.stringify(entries),
   }).then((response) => {
     if (response.ok) {
-      // ! REDIRIGIR AL USUARIO A LA PÁGINA PRINCIPAL
+      window.location.href = "/pages/orders";
     } else {
-      // ! MOSTRAR UN MENSAJE DE ERROR AL USUARIO
+      throw new Error("Ocurrio un error al redirigir al usuario");
     }
   });
 });
