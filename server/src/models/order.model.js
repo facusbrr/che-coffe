@@ -6,8 +6,8 @@ let ordersCollection = [];
 export const createOrder = (coffee, userId) => {
   const newOrder = {
     id: crypto.randomUUID().toString(),
-    coffee,
     userId,
+    coffee,
   };
 
   ordersCollection.push(newOrder);

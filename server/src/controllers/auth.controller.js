@@ -42,6 +42,7 @@ export const signUpCtrl = async (req, res) => {
 
 export const signOutCtrl = (req, res) => {
   try {
+    res.clearCookie("token");
     res.status(200).json({ message: "Sign out success" });
   } catch (error) {
     res.status(500).json({ message: error.message });
