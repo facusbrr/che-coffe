@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CheCoffee Login</title>
+  </head>
+  <body>
+    <h1
+      class="text-3xl text-blue-800 bg-brandDark flex flex-row items-center justify-center min-h-dvh"
+    >
+      <div
+        class="min-h-[550px] h-[600px] bg-brandDark flex justify-center items-center text-white"
+      >
+        <div class="container pb-8 sm:pb-0">
+          <div class="grid grid-cols-1 sm:grid-cols-2">
+            <form id="login-form" class="flex flex-col gap-5">
+              <h2 class="text-4xl font-bold text-center mb-4">Login Form</h2>
+              <div class="flex flex-col">
+                <label for="email" class="text-lg">Email:</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="test@test.com"
+                  class="bg-gradient-to-r from-primary to-secondary p-2 px-4 rounded-xl text-lg"
+                />
+              </div>
+              <div class="flex flex-col">
+                <label for="password" class="text-lg">Password:</label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="***************"
+                  class="bg-gradient-to-r from-primary to-secondary p-2 px-4 rounded-xl text-lg"
+                />
+              </div>
+              <button
+                type="submit"
+                class="bg-gradient-to-r from-primary to-secondary p-2 px-4 rounded-xl hover:from-secondary hover:to-primary text-lg"
+              >
+                Sign In
+              </button>
+
+              <a href="/pages/register.html" class="text-lg text-blue-500">
+                I don't have an account yet
+              </a>
+            </form>
+            <div
+              data-aos="zoom-in"
+              data-aos-duration="300"
+              class="min-h-[450px] flex justify-center items-center relative order-1 sm:order-2"
+            >
+              <img
+                data-aos-once="true"
+                src="../src/assets/coffee2.png"
+                alt="biryani img"
+                class="w-[300px] sm:w-[450px] sm:scale-125 mx-auto spin"
+              />
+              <div
+                data-aos="fade-left"
+                class="bg-gradient-to-r from-primary to-secondary p-3 rounded-xl absolute top-10 left-10"
+              >
+                <h1 class="text-white">Hey Coder</h1>
+              </div>
+              <div
+                data-aos="fade-right"
+                data-aos-offset="0"
+                class="bg-gradient-to-r from-primary to-secondary p-3 rounded-xl absolute bottom-10 right-10"
+              >
+                <h1 class="text-white">Best Coffee</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </h1>
+    <script type="module" src="../src/login.js"></script>
+  </body>
+</html>
